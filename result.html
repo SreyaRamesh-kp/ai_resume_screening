@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume Match Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 500px;
+            margin: 60px auto;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            text-align: center;
+            color: #1e3a8a;
+        }
+        .result {
+            margin-top: 20px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            margin-bottom: 10px;
+            color: #2563eb;
+        }
+        .tag {
+            display: inline-block;
+            background: #e0e7ff;
+            color: #1e3a8a;
+            padding: 8px 12px;
+            margin: 4px 4px 0 0;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        .button {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 12px;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Resume Match Result</h1>
+    <div class="result">
+        <div class="section">
+            <h2>Match Score</h2>
+            <p><strong>{{ score }}%</strong></p>
+        </div>
+        <div class="section">
+            <h2>Matched Skills</h2>
+            {% if match_skills %}
+                {% for skill in match_skills %}
+                    <span class="tag">{{ skill }}</span>
+                {% endfor %}
+            {% else %}
+                <p>No matched skills found.</p>
+            {% endif %}
+        </div>
+        <div class="section">
+            <h2>Missing Skills</h2>
+            {% if missing_skills %}
+                {% for skill in missing_skills %}
+                    <span class="tag">{{ skill }}</span>
+                {% endfor %}
+            {% else %}
+                <p>No missing skills detected.</p>
+            {% endif %}
+        </div>
+        <a class="button" href="/">Analyze another resume</a>
+    </div>
+</div>
+</body>
+</html>

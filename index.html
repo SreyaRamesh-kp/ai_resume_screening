@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Resume Screening System</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url("/static/ai_b.png");
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container{
+            width:400px;
+            margin:60px auto;
+            background:rgb(14, 81, 135);
+            padding:30px;
+            border-radius:10px;
+            box-shadow:0 0 10px rgba(0,0,0,.2);
+        }
+
+        h1{
+            text-align:center;
+            color:#110001;
+        }
+
+        p{
+            text-align:center;
+            color:gray;
+        }
+
+        label{
+            font-weight:bold;
+        }
+
+        input[type=file],
+        textarea{
+            width:100%;
+            padding:10px;
+            margin-top:8px;
+            margin-bottom:20px;
+            border:1px solid #ccc;
+            border-radius:5px;
+            box-sizing:border-box;
+        }
+
+        textarea{
+            height:150px;
+            resize:none;
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            background:#2563eb;
+            color:white;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+            font-size:16px;
+        }
+
+        button:hover{
+            background:#1d4ed8;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>AI Resume Screening System</h1>
+
+<p>Upload your resume and compare it with the job description.</p>
+
+<form action="/predict" method="POST" enctype="multipart/form-data">
+
+<label>Upload Resume (PDF)</label>
+
+<input type="file" name="resume" accept=".pdf" required>
+
+<label>Job Description</label>
+
+<textarea
+name="job_description"
+placeholder="Paste Job Description Here..."
+required></textarea>
+
+<button type="submit">
+Analyze Resume
+</button>
+
+</form>
+
+</div>
+
+</body>
+</html>
